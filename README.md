@@ -9,7 +9,7 @@ PR's are welcome.
 
 ## Example
 
-```
+```js
 const fs = require('fs');
 const Promise = require('bluebird');
 const path = require('path');
@@ -95,7 +95,7 @@ Once authenticated, a user is only allowed to interact with files that belong to
 
 Optionally, you may choose to resolve the returned promise with an object describing the various SFTP commands that the connecting client should be allowed to perform. By default, _all_ commands are enabled. Select commands can be individually disabled as shown below.
 
-```
+```js
 {
     'auth': function(username, password) {
         return Promise.resolve()
@@ -131,7 +131,7 @@ Commands which can be selectively disabled include:
 ### Fetch Users
 
     $ curl -X GET --header "x-token: yYNR8xeUGtcim7XYaUTsdfmkNuKxLHjw77MbPMkZzKoNdsAzyMryVLJEzjVMHpHM" \
-    	http://127.0.0.1:8000/api/users
+        http://127.0.0.1:8000/api/users
 
 ### Fetch and Manipulate Files / Folders
 
@@ -143,7 +143,7 @@ http://[hostname]:[port]/api/users/[username]/files/[path-to-file]
 
 
     $ curl -X GET --header "x-token: yYNR8xeUGtcim7XYaUTsdfmkNuKxLHjw77MbPMkZzKoNdsAzyMryVLJEzjVMHpHM" \
-    	http://127.0.0.1:8000/api/users/foo/files
+        http://127.0.0.1:8000/api/users/foo/files
 
 ```
 [
@@ -196,21 +196,21 @@ http://[hostname]:[port]/api/users/[username]/files/[path-to-file]
 
 Specific files / sub-directories can be addressed by appending the desired path to the URL we saw in the previous example.
 
-	# Fetch files within the 'herp' subdirectory of the specified user's (foo) folder:
+    # Fetch files within the 'herp' subdirectory of the specified user's (foo) folder:
     $ curl -X GET --header "x-token: yYNR8xeUGtcim7XYaUTsdfmkNuKxLHjw77MbPMkZzKoNdsAzyMryVLJEzjVMHpHM" \
-    	http://127.0.0.1:8000/api/users/foo/files/herp
+        http://127.0.0.1:8000/api/users/foo/files/herp
 
-	# Delete the 'herp' subdirectory of the specified user's (foo) folder:
+    # Delete the 'herp' subdirectory of the specified user's (foo) folder:
     $ curl -X DELETE --header "x-token: yYNR8xeUGtcim7XYaUTsdfmkNuKxLHjw77MbPMkZzKoNdsAzyMryVLJEzjVMHpHM" \
-    	http://127.0.0.1:8000/api/users/foo/files/herp
+        http://127.0.0.1:8000/api/users/foo/files/herp
 
-	# Fetch a specific file:
+    # Fetch a specific file:
     $ curl -X GET --header "x-token: yYNR8xeUGtcim7XYaUTsdfmkNuKxLHjw77MbPMkZzKoNdsAzyMryVLJEzjVMHpHM" \
-    	http://127.0.0.1:8000/api/users/foo/files/herp/derp.txt
+        http://127.0.0.1:8000/api/users/foo/files/herp/derp.txt
 
-	# Delete a specific file:
+    # Delete a specific file:
     $ curl -X DELETE --header "x-token: yYNR8xeUGtcim7XYaUTsdfmkNuKxLHjw77MbPMkZzKoNdsAzyMryVLJEzjVMHpHM" \
-    	http://127.0.0.1:8000/api/users/foo/files/herp/derp.txt
+        http://127.0.0.1:8000/api/users/foo/files/herp/derp.txt
 
 #### Fetching User Meta Information
 
@@ -218,7 +218,7 @@ To fetch meta information for a file or folder, append `?meta=true` to the appro
 
 ```
 $ curl -X GET --header "x-token: yYNR8xeUGtcim7XYaUTsdfmkNuKxLHjw77MbPMkZzKoNdsAzyMryVLJEzjVMHpHM" \
-	http://127.0.0.1:8000/api/users/foo/files?meta=true
+    http://127.0.0.1:8000/api/users/foo/files?meta=true
 ```
 
 Returns:
@@ -251,7 +251,7 @@ The `totalSize` property indicates the total combined size of all files / direct
 
 ```
 $ curl -X GET --header "x-token: yYNR8xeUGtcim7XYaUTsdfmkNuKxLHjw77MbPMkZzKoNdsAzyMryVLJEzjVMHpHM" \
-	http://127.0.0.1:8000/api/system/meta
+    http://127.0.0.1:8000/api/system/meta
 ```
 
 Returns:

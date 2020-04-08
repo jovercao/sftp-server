@@ -34,6 +34,11 @@ const server = require('../')({
         },
         'rateLimitTTL': 10
     },
+    users: [
+        {
+            
+        }
+    ],
     'api': {
         'port': 8000,
         'key': 'yYNR8xeUGtcim7XYaUTsdfmkNuKxLHjw77MbPMkZzKoNdsAzyMryVLJEzjVMHpHM'
