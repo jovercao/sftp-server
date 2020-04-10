@@ -6,50 +6,41 @@ const SFTPServer = require('../');
 const path = require('path');
 
 const server = require('../')({
-    'sftp': {
-        'port': 3333,
-        'hostKeys': [
+    sftp: {
+        port: 3333,
+        hostKeys: [
             fs.readFileSync(__dirname + '/host_rsa').toString('utf8')
         ],
-        'dataDirectory': path.resolve(__dirname, '../data'),
-        'auth': function(username, password) {
-
-            return Promise.resolve()
-                .then(() => {
-
-                    if (username === 'foo' && password === 'bar') {
-                        return true;
-                    } else if (username === 'herp' && password === 'derp') {
-                        return {
-                            'permissions': {
-                                'MKDIR': false
-                            }
-                        };
-                    } else {
-                        throw new Error();
-                    }
-
-                });
-
-        },
-        'rateLimitTTL': 10
+        users: [
+            {
+                username: 'test',
+                password: 'test',
+                maxConnect: 2,
+                rootDir: path.resolve(__dirname, '../data/test'),
+                permissions: {
+                    MKDIR: false
+                }
+            }
+        ],
+        dataDirectory: path.resolve(__dirname, '../data'),
+        rateLimitTTL: 10
     },
     users: [
         {
             
         }
     ],
-    'api': {
-        'port': 8000,
-        'key': 'yYNR8xeUGtcim7XYaUTsdfmkNuKxLHjw77MbPMkZzKoNdsAzyMryVLJEzjVMHpHM'
+    api: {
+        port: 8000,
+        key: 'yYNR8xeUGtcim7XYaUTsdfmkNuKxLHjw77MbPMkZzKoNdsAzyMryVLJEzjVMHpHM'
     },
-    'log': {
-        'console': {
-            'enabled': true
+    log: {
+        console: {
+            enabled: true
         },
-        'file': {
-            'enabled': false,
-            'filename':path.resolve(__dirname, 'log/sftp-server.log')
+        file: {
+            enabled: false,
+            filename:path.resolve(__dirname, 'log/sftp-server.log')
         }
     }
 })

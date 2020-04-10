@@ -5,7 +5,9 @@
   "main": "lib/factory.js",
   "scripts": {
     "test": "mocha",
-    "dev": "DEBUG=sftp:* nodemon example/server.js"
+    "dev": "DEBUG=sftp:* nodemon example/server.js",
+    "cli": "node bin/cli.js",
+    "build": "pkg . -t node10-windows-x64 --out-path dist"
   },
   "author": "",
   "license": "ISC",
@@ -18,12 +20,14 @@
   "dependencies": {
     "bluebird": "^3.5.0",
     "confit": "^2.2.1",
+    "crypto": "^1.0.1",
     "electrolyte": "^0.5.0",
     "eventemitter2": "^4.1.2",
     "express": "^4.15.4",
     "fs-extra": "^4.0.1",
     "get-folder-size": "^1.0.0",
     "lodash": "^4.17.4",
+    "lodash.defaultsdeep": "^4.6.1",
     "moment": "^2.18.1",
     "request": "^2.81.0",
     "request-promise": "^4.2.1",
@@ -40,5 +44,14 @@
       "test/*"
     ],
     "delay": "1000"
+  },
+  "bin": "bin/cli.js",
+  "pkg": {
+    "scripts": [
+      "lib/**/*.js"
+    ],
+    "assets": [
+      "node_module/**/*.js"
+    ]
   }
 }

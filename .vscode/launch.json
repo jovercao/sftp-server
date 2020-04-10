@@ -12,7 +12,8 @@
                 "<node_internals>/**",
                 "node_modules/**"
             ],
-            "program": "${workspaceFolder}/example/server.js"
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/bin/cli"
         }
     ]
 }

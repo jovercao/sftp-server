@@ -2,6 +2,7 @@
 node_modules
 *.log
 tmp
-data
+data/
 test/.tmp
 example/log
+dist/
