@@ -67,7 +67,7 @@ appRoot = process.env.NODE_ENV === 'production' ? path.dirname(process.execPath)
 const matchExp = /\$\{appRoot\}/g;
 
 if (!config.sftp.users || !config.sftp.users.length) {
-    throw new Error('you must create one user!')
+    throw new Error('you must create one user!');
 }
 config.sftp.users.forEach((user) => {
     if (user.rootDir) {

@@ -5,8 +5,8 @@
   "main": "lib/factory.js",
   "scripts": {
     "test": "mocha",
-    "dev": "DEBUG=sftp:* nodemon example/server.js",
-    "cli": "node bin/cli.js",
+    "dev": "DEBUG=sftp:* nodemon bin/cli.js",
+    "start": "node bin/cli.js",
     "build": "pkg . -t node10-windows-x64 --out-path dist"
   },
   "author": "",

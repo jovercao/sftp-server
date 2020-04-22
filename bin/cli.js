@@ -4,12 +4,13 @@ const fs = require('fs');
 // const Promise = require('bluebird');
 // const SFTPServer = require('../');
 const path = require('path');
-const options = require('./config')
+const options = require('./config');
 
 options.sftp.hostKeys = [
     fs.readFileSync(options.sftp.hostKeyFile).toString('utf8')
-]
-delete options.sftp.hostKeyFile
+];
+
+delete options.sftp.hostKeyFile;
 
 require('../')(options)
     .then((server) => {

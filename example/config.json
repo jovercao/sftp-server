@@ -1,12 +1,12 @@
 {
     "sftp": {
-        "hostKeyFile": "example/data/host_rsa",
+        "hostKeyFile": "data/host_rsa",
         "users": [
             {
                 "username": "test",
                 "password": "test"
             }
         ],
-        "dataDirectory": "example/data"
+        "dataDirectory": "data"
     }
 }
